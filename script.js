@@ -41,6 +41,7 @@ function showQuestion(question){
     });
 }
 function resetState(){
+    clearStatusClass(document.body)
      nextButton.classList.add('hide')
      while(answerButtonsElement.firstChild){
          answerButtonsElement.removeChild
@@ -57,8 +58,10 @@ function selectAnswer(e) {
     })
     if(shuffleQuestions.length > currentQuestionIndex +1) {
         nextButton.classList.remove('hide')
+    }else{
+        startButton.innerText = 'Restart'
+        startButton.classList.remove('hide')
     }
-    
 }
 
 function setStatusClass(element, correct){
@@ -84,4 +87,41 @@ const questions = [{
         text: '8',
         correct: false
     }]
-}]
+},
+{
+    question: 'What is 16 + 3?',
+    answers: [{
+        text: '21',
+        correct: false
+    }, {
+        text: '19',
+        correct: true
+    }]
+},{
+    question: 'What is 7 + 2?',
+    answers: [{
+        text: '9',
+        correct: true
+    }, {
+        text: '8',
+        correct: false
+    }]
+},{
+    question: 'What is 21 + 21?',
+    answers: [{
+        text: '44',
+        correct: false
+    }, {
+        text: '42',
+        correct: true
+    }]
+},{
+    question: 'What is 12 + 21?',
+    answers: [{
+        text: '33',
+        correct: true
+    }, {
+        text: '22',
+        correct: false
+    }]
+}]  
